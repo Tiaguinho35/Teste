@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pregador Virtual - Palavra em Streaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0f1b;
+      color: #e0e6f8;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00f0ff, #6f00ff);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav {
+      background-color: #0d0f1b;
+      padding: 10px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #00f0ff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      padding: 5px 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #cfd7ff;
+    }
+
+    .hero-image {
+      position: absolute;
+      right: 10px;
+      bottom: 0;
+      height: 150px;
+      max-width: 150px;
+      opacity: 0.8;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .buttons a,
+    .buttons button {
+      background-color: #00f0ff;
+      color: #0d0f1b;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      width: 200px;
+      text-align: center;
+    }
+
+    .buttons button:hover,
+    .buttons a:hover {
+      transform: scale(1.05);
+    }
+
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1a1c2e;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .form-popup input,
+    .form-popup textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .form-popup button {
+      background-color: #00f0ff;
+      color: #0d0f1b;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media(min-width: 600px) {
+      .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    .video-card {
+      background-color: #1a1c2e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .video-card h3 {
+      margin: 10px;
+      font-size: 1.1rem;
+    }
+
+    .agenda {
+      background-color: #121426;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .agenda-item {
+      border-bottom: 1px solid #2c2e4e;
+      padding: 10px 0;
+    }
+
+    .agenda-item:last-child {
+      border-bottom: none;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: #00f0ff;
+      text-decoration: none;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 30px 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 0.95rem;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px auto;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .buttons a,
+      .buttons button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 20px 10px;
+      }
+
+      .video-card iframe {
+        height: 180px;
+      }
+
+      .agenda {
+        padding: 15px;
+      }
+
+      .form-popup {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .form-popup input,
+      .form-popup textarea {
+        font-size: 1rem;
+      }
+
+      .socials a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .whatsapp-button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+  </style>
+  <script>
+    function openForm() {
+      document.getElementById("prayerForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("prayerForm").style.display = "none";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Pregador Virtual</h1>
+    <p>Transformando vidas com a Palavra em Streaming</p>
+    <div class="buttons">
+      <a href="../Pag-terc/index.html" target="_blank">▶️ Assistir Agora</a>
+      <button onclick="openForm()">🔔 Inscreva-se</button>
+    </div>
+    <img src="../Imagens/Avatar.png" alt="Jovem com celular" class="hero-image">
+  </header>
+
+  <nav>
+    <a href="../Pag-sec/">Onde Assistir</a>
+    <a href="autor.html">Autor da Página</a>
+    <a href="#mensagens">Mensagens</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <div class="form-popup" id="prayerForm">
+    <h2>Pedido de Oração</h2>
+    <form action="https://formsubmit.co/tiagobonelesdossantos@gmail.com" method="POST">
+      <label for="name">Nome</label>
+      <input type="text" name="name" id="name" required>
+      <label for="email">E-mail ( opcional )</label>
+      <input type="email" name="email" id="email">
+      <label for="message">Pedido</label>
+      <textarea name="message" id="message" placeholder="Escreva aqui seu pedido" required></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="http://127.0.0.1:5500/../Obrigado/obrigado.html">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <div class="section" id="mensagens">
+    <h2>Mensagens Recentes</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src=
+        "https://www.youtube.com/embed/jJlGErX4B4Q?si=k0vLT7yvo6cKFBZF" allowfullscreen></iframe>
+        <h3>Mensagem: A Luz no Vale</h3>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/vpX81g2lfMY?si=sliDHYPdni_pyMp8" allowfullscreen></iframe>
+        <h3>Devocional: Esperança Diária</h3>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/5jY5HtB55yA?si=_bKm9voYEU8Bsu5W" allowfullscreen></iframe>
+        <h3>Estudo: Fé e Ação</h3>
+      </div>
+    </div>
+
+    <div class="agenda">
+      <h2>Agenda de Transmissões</h2>
+      <div class="agenda-item">📅 Domingo, 19h - Culto ao Vivo</div>
+      <div class="agenda-item">📅 Terça, 20h - Estudo Bíblico</div>
+      <div class="agenda-item">📅 Sexta, 21h - Vigília Online</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Sobre o Pregador</h2>
+    <p>
+      Com uma mensagem centrada no amor e na verdade, o Pregador Virtual utiliza a tecnologia para alcançar vidas ao redor do mundo. Cada palavra compartilhada aqui é uma semente de fé para um novo tempo.
+    </p>
+  </div>
+
+  <div class="section socials" id="contato">
+    <h2>Conecte-se</h2>
+    <a href="https://youtube.com/@t.boneles?si=J-9g9Wdlz8VSL34M">YouTube</a>
+    <a href="https://web.facebook.com/tiagoboneles/">Facebook</a>
+    <a href="https://wa.me/5521992305517" target="_blank" class="whatsapp-button">💬 Fale conosco no WhatsApp</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Pregador Virtual. Todos os direitos reservados.
+  </div>
+</body>
+</html>
