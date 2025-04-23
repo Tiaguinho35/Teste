@@ -304,7 +304,8 @@
       <label for="message">Pedido</label>
       <textarea name="message" id="message" placeholder="Escreva aqui seu pedido" required></textarea>
       <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="leafy-maamoul-1c25f0.netlify.app/Obrigado/obrigado.html">
+      <input type="hidden" name="_next" id="nextPageRedirect">
+
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -352,5 +353,10 @@
   <div class="footer">
     &copy; 2025 Pregador Virtual. Todos os direitos reservados.
   </div>
+  <script>
+    // Monta a URL base do site automaticamente
+    document.getElementById("nextPageRedirect").value =
+      window.location.origin + "/Obrigado/obrigado.html";
+  </script>
 </body>
 </html>
