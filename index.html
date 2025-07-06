@@ -274,22 +274,28 @@
     function closeForm() {
       document.getElementById("prayerForm").style.display = "none";
     }
+    
+    function abrirMapa() {
+      // Exemplo: localização da Av. Paulista, São Paulo
+      const endereco = encodeURIComponent("6 R. Bolivar Carvalho, Jardim Metrópoles, São João de Meriti");
+      const url = `https://www.google.com/maps?q=${endereco}`;
+      window.open(url, '_blank');
+    }
   </script>
 </head>
 <body>
   <header>
-    <h1>Pregador Virtual</h1>
-    <p>Transformando vidas com a Palavra em Streaming</p>
+    <h1>Assembléia de Deus</h1>
+    <p>Ministério O Mover do Espírito Santo</p>
     <div class="buttons">
-      <a href="Pag-terc.html" target="_blank">▶️ Assistir Agora</a>
+      <button onclick="abrirMapa()">▶️ Onde nos encontrar</button>
       <button onclick="openForm()">🔔 Pedido de oração</button>
     </div>
-    <img src="/Imagens/Avatar.png" alt="Jovem com celular" class="hero-image">
   </header>
 
   <nav>
-    <a href="Pag-seg.html">Onde Assistir</a>
-    <a href="autor.html">Autor da Página</a>
+    <a href="#somos">Quem somos</a>
+    <a href="#cultos">Nossos cultos</a>
     <a href="#mensagens">Mensagens</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -328,18 +334,18 @@
       </div>
     </div>
 
-    <div class="agenda">
-      <h2>Agenda de Transmissões</h2>
-      <div class="agenda-item">📅 Domingo, 19h - Culto ao Vivo</div>
-      <div class="agenda-item">📅 Terça, 20h - Estudo Bíblico</div>
-      <div class="agenda-item">📅 Sexta, 21h - Vigília Online</div>
+    <div class="agenda" id="cultos">
+      <h2>Nossos cultos</h2>
+      <div class="agenda-item">📅 Domingo, 9h - Estudo Bíblico / 19h - Culto...</div>
+      <div class="agenda-item">📅 Quarta, 9h - Consagração / 19h - Culto da família</div>
+      <div class="agenda-item">📅 Sexta, 19h - Culto de Libertação</div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>Sobre o Pregador</h2>
+  <div class="section" id="somos">
+    <h2>Quem somos</h2>
     <p>
-      Com uma mensagem centrada no amor e na verdade, o Pregador Virtual utiliza a tecnologia para alcançar vidas ao redor do mundo. Cada palavra compartilhada aqui é uma semente de fé para um novo tempo.
+      Somos uma igreja...
     </p>
   </div>
 
