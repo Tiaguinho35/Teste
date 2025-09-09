@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onde nos encontrar - Pregador Virtual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0f1b;
+      color: #e0e6f8;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00f0ff;
+      margin-bottom: 20px;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .slides img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Descrição da imagem */
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #00f0ff;
+      font-size: 1.1rem;
+      padding: 12px;
+      box-sizing: border-box;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Botão Abrir no Mapa */
+    .map-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #6f00ff;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .map-btn:hover {
+      background-color: #00f0ff;
+      color: #0d0f1b;
+    }
+
+    /* Link voltar */
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      color: #00f0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .map-btn {
+        width: 90%;
+        font-size: 1rem;
+      }
+
+      .caption {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pontos de referência</h1>
+
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="/Imagens/foto1.png" alt="Foto 1 do local">
+      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto2.png" alt="Foto 2 do local">
+      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto3.png" alt="Foto 3 do local">
+      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto4.png" alt="Foto 4 do local">
+      <div class="caption">Ligth</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto5.png" alt="Foto 5 do local">
+      <div class="caption">DPO</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto6.png" alt="Foto 6 do local">
+      <div class="caption">Av. do Comércio</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto7.png" alt="Foto 7 do local">
+      <div class="caption">Ligth</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto8.png" alt="Foto 8 do local">
+      <div class="caption">Pç próxima à Light e ao CIEP 115</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto9.png" alt="Foto 9 do local">
+      <div class="caption">Pç do Olavo Bilac</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto10.png" alt="Foto 10 do local">
+      <div class="caption">Muro da nossa Igreja</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto11.png" alt="Foto 11 do local">
+      <div class="caption">Igreja no terraço</div>
+    </div>
+    <div class="slides">
+      <img src="/Imagens/foto12.png" alt="Foto 12 do local">
+      <div class="caption">Número da Igreja</div>
+    </div>
+    <!-- Continue adicionando legendas nas outras imagens -->
+    
+    <!-- Botões navegação -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+
+  <a class="map-btn" href="https://www.google.com/maps/place/Rua+Bolivar+de+Carvalho,+6+-+Jardim+Sumar%C3%A9" target="_blank">📍 Abrir no Mapa</a>
+
+  <a href="index.html" class="back-link">⬅️ Voltar para o Início</a>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 4000);
+    }
+  </script>
+
+</body>
+</html>
