@@ -20,7 +20,6 @@
       margin-bottom: 20px;
     }
 
-    /* Slideshow container */
     .slideshow-container {
       max-width: 800px;
       position: relative;
@@ -41,9 +40,9 @@
       width: 100%;
       border-radius: 12px;
       display: block;
+      cursor: pointer;
     }
 
-    /* Descrição da imagem */
     .caption {
       position: absolute;
       bottom: 0;
@@ -57,33 +56,6 @@
       text-shadow: 1px 1px 4px #000;
     }
 
-    /* Next & previous buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 12px;
-      margin-top: -22px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 18px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      background: rgba(0, 0, 0, 0.5);
-      transition: 0.3s;
-    }
-
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    /* Botão Abrir no Mapa */
     .map-btn {
       display: inline-block;
       margin-top: 30px;
@@ -101,7 +73,6 @@
       color: #0d0f1b;
     }
 
-    /* Link voltar */
     .back-link {
       display: block;
       margin-top: 40px;
@@ -110,17 +81,56 @@
       font-weight: bold;
     }
 
-    /* Responsividade */
-    @media (max-width: 600px) {
-      .map-btn {
-        width: 90%;
-        font-size: 1rem;
-      }
+    /* Modal fullscreen */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
 
-      .caption {
-        font-size: 0.9rem;
-        padding: 8px;
-      }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .modal .prev, .modal .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      font-size: 40px;
+      color: #fff;
+      padding: 20px;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .modal .prev { left: 20px; }
+    .modal .next { right: 20px; }
+
+    .modal .prev:hover, .modal .next:hover {
+      color: #00f0ff;
+    }
+
+    @media (max-width: 600px) {
+      .map-btn { width: 90%; font-size: 1rem; }
+      .caption { font-size: 0.9rem; padding: 8px; }
     }
   </style>
 </head>
@@ -129,80 +139,80 @@
   <h1>Pontos de referência</h1>
 
   <div class="slideshow-container">
-    <div class="slides">
-      <img src="/Imagens/Foto1.png" alt="Foto 1 do local">
-      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto2.png" alt="Foto 2 do local">
-      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto3.png" alt="Foto 3 do local">
-      <div class="caption">CIEP 115 - Antônio Francisco Lisboa</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto4.png" alt="Foto 4 do local">
-      <div class="caption">Ligth</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto5.png" alt="Foto 5 do local">
-      <div class="caption">DPO</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto6.png" alt="Foto 6 do local">
-      <div class="caption">Av. do Comércio</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto7.png" alt="Foto 7 do local">
-      <div class="caption">Ligth</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto8.png" alt="Foto 8 do local">
-      <div class="caption">Pç próxima à Light e ao CIEP 115</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto9.png" alt="Foto 9 do local">
-      <div class="caption">Pç do Olavo Bilac</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto10.png" alt="Foto 10 do local">
-      <div class="caption">Muro da nossa Igreja</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto11.png" alt="Foto 11 do local">
-      <div class="caption">Igreja no terraço</div>
-    </div>
-    <div class="slides">
-      <img src="/Imagens/foto12.png" alt="Foto 12 do local">
-      <div class="caption">Número da Igreja</div>
-    </div>
-    <!-- Continue adicionando legendas nas outras imagens -->
+    <div class="slides"><img src="/Imagens/Foto1.png" alt="Foto 1"><div class="caption">CIEP 115</div></div>
+    <div class="slides"><img src="/Imagens/foto2.png" alt="Foto 2"><div class="caption">CIEP 115</div></div>
+    <div class="slides"><img src="/Imagens/foto3.png" alt="Foto 3"><div class="caption">CIEP 115</div></div>
+    <div class="slides"><img src="/Imagens/foto4.png" alt="Foto 4"><div class="caption">Ligth</div></div>
+    <div class="slides"><img src="/Imagens/foto5.png" alt="Foto 5"><div class="caption">DPO</div></div>
+    <div class="slides"><img src="/Imagens/foto6.png" alt="Foto 6"><div class="caption">Av. do Comércio</div></div>
+  </div>
 
   <a class="map-btn" href="https://www.google.com/maps/place/Rua+Bolivar+de+Carvalho,+6+-+Jardim+Sumar%C3%A9" target="_blank">📍 Abrir no Mapa</a>
-
   <a href="index.html" class="back-link">⬅️ Voltar para o Início</a>
+
+  <!-- Modal fullscreen -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img id="modalImage" src="">
+    <span class="next">&#10095;</span>
+  </div>
 
   <script>
     let slideIndex = 0;
     showSlides();
 
-    function plusSlides(n) {
-      slideIndex += n - 1;
-      showSlides();
-    }
-
     function showSlides() {
       let slides = document.getElementsByClassName("slides");
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
+      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
       slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      slides[slideIndex - 1].style.display = "block";
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex-1].style.display = "block";
       setTimeout(showSlides, 4000);
     }
-  </script>
 
+    // Modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".modal .close");
+    const prevBtn = document.querySelector(".modal .prev");
+    const nextBtn = document.querySelector(".modal .next");
+    const slideImgs = document.querySelectorAll(".slides img");
+
+    let currentImgIndex = 0;
+
+    slideImgs.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        currentImgIndex = index;
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    prevBtn.onclick = () => showModalImage(currentImgIndex - 1);
+    nextBtn.onclick = () => showModalImage(currentImgIndex + 1);
+
+    function showModalImage(index) {
+      if (index < 0) index = slideImgs.length - 1;
+      if (index >= slideImgs.length) index = 0;
+      modalImg.src = slideImgs[index].src;
+      currentImgIndex = index;
+    }
+
+    // Fechar clicando fora
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+
+    // Gestos mobile (swipe)
+    let startX = 0;
+    modal.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+    modal.addEventListener("touchend", (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) showModalImage(currentImgIndex - 1); // direita
+      else if (startX - endX > 50) showModalImage(currentImgIndex + 1); // esquerda
+    });
+  </script>
 </body>
 </html>
