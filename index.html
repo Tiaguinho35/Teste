@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Open Graph -->
+<meta property="og:title" content="Assembléia de Deus - Ministério O Mover do Espírito Santo">
+<meta property="og:description" content="Assista nossas mensagens e participe do mover do Espírito Santo.">
+<meta property="og:image" content="https://leafy-maamoul-1c25f0.netlify.app.com/Imagens/marca_d'agua.jpeg">
+<meta property="og:url" content="https://leafy-maamoul-1c25f0.netlify.app.com">
+<meta property="og:type" content="website">
+
   <title>Assembléia de Deus - Ministério O Mover do Espírito Santo</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -11,14 +18,6 @@
       font-family: 'Orbitron', sans-serif;
       background-color: #0d0f1b;
       color: #e0e6f8;
-    }
-
-    header {
-      background: linear-gradient(90deg, #00f0ff, #6f00ff);
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
     header {
@@ -159,11 +158,12 @@
       overflow: hidden;
     }
 
-    .video-card iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-    }
+    .video-card video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-color: black; /* fundo p/ não ficar vazio antes do play */
+}
 
     .video-card h3 {
       margin: 10px;
@@ -246,7 +246,7 @@
         padding: 20px 10px;
       }
 
-      .video-card iframe {
+      .video-card video {
         height: 180px;
       }
 
@@ -328,22 +328,26 @@
   </div>
 
   <div class="section" id="mensagens">
-    <h2>Mensagens Recentes</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe src=
-        "https://www.youtube.com/embed/jJlGErX4B4Q?si=k0vLT7yvo6cKFBZF" allowfullscreen></iframe>
-        <h3>Mensagem: O que você têm feito com o seu tempo</h3>
-      </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vpX81g2lfMY?si=sliDHYPdni_pyMp8" allowfullscreen></iframe>
-        <h3>Mensagem: Tudo sucede igualmente à todos</h3>
-      </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/5jY5HtB55yA?si=_bKm9voYEU8Bsu5W" allowfullscreen></iframe>
-        <h3>Mensagem: Somos apenas Ministros</h3>
-      </div>
+  <h2>Mensagens Recentes</h2>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <video controls>
+        <source src="Videos/Mulheres_Virt.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+      </video>
+      <h3>Mensagem: O que você tem feito com o seu tempo</h3>
     </div>
+
+    <div class="video-card">
+      <video controls>
+        <source src="Videos/Mulheres_Virt.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+      </video>
+      <h3>Mensagem: Tudo sucede igualmente a todos</h3>
+    </div>
+  </div>
+</div>
 
     <div class="agenda" id="cultos">
       <h2>Nossos cultos</h2>
