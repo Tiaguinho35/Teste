@@ -30,15 +30,33 @@
   color: #fff; /* deixa o texto branco */
 }
 
+a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: #00f0ff;
+  color: #0d0f1b;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.3s;
+  
+}
+
+a:hover {
+  background: #00c8d9;
+  transform: scale(1.05);
+}
+
     nav {
-      background-color: #0d0f1b;
+      color: #0d0f1b;
       padding: 10px;
       text-align: center;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #00f0ff;
+      color: #0d0f1b;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
@@ -326,20 +344,35 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
+
   <div class="section" id="mensagens">
-    <h2>Mensagens Recentes</h2>
-    <div class="video-grid">
- <div class="video-card">
-  <iframe 
-    width="100%" 
-    height="450" 
-    src="https://www.youtube.com/embed/jJlGErX4B4Q?si=dLnTi05KDgtxt8Ck" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-  <h3>Mensagem: Ele é contigo</h3>
-</div>
+  <h2>Mensagens Recentes</h2>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <video controls>
+        <source src="Videos/Mulheres_Virt.mp4" type="video/mp4">
+      </video>
+      <h3>Mensagem: O que você tem feito com o seu tempo</h3>
+      <a href="Mul_Virt.html">Assistir página completa</a>
+    </div>
+
+    <div class="video-card">
+      <video controls>
+        <source src="Videos/Mulheres_Virt.mp4" type="video/mp4">
+      </video>
+      <h3>Mensagem: Tudo sucede igualmente a todos</h3>
+      <a href="Mul_Virt.html">Assistir página completa</a>
+    </div>
+
+    <div class="video-card">
+      <video controls>
+        <source src="Videos/Mulheres_Virt.mp4" type="video/mp4">
+      </video>
+      <h3>Mensagem: Somos apenas ministros</h3>
+      <a href="Mul_Virt.html">Assistir página completa</a>
+    </div>
+
   </div>
 </div>
   
