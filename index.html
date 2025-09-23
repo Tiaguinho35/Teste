@@ -21,51 +21,62 @@
     }
 
     header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-              url("/Imagens/marca_d'agua.jpeg") center/cover no-repeat;
-  padding: 40px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  color: #fff; /* deixa o texto branco */
-}
-
-a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 18px;
-  background: #00f0ff;
-  color: #0d0f1b;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.3s;
-  
-}
-
-a:hover {
-  background: #00c8d9;
-  transform: scale(1.05);
-}
-
-    nav {
-      color: #0d0f1b;
-      padding: 10px;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                  url("/Imagens/marca_d'agua.jpeg") center/cover no-repeat;
+      padding: 40px 20px;
       text-align: center;
-      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      background: #00f0ff;
+      color: #0d0f1b;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.3s;
+    }
+
+    a:hover {
+      background: #00c8d9;
+      transform: scale(1.05);
+    }
+
+    /* 🔹 Menu de navegação atualizado */
+    nav {
+      text-align: center;
+      padding: 10px;
     }
 
     nav a {
-      color: #0d0f1b;
-      margin: 0 10px;
+      color: #0d0f1b;          /* cor clara para contraste */
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
-      padding: 5px 10px;
+      padding: 6px 12px;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #00f0ff;
+      text-shadow: 0 0 8px #00f0ff;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 15px 5px;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px auto;
+      }
     }
 
     header h1 {
@@ -177,11 +188,11 @@ a:hover {
     }
 
     .video-card video {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  background-color: black; /* fundo p/ não ficar vazio antes do play */
-}
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background-color: black;
+    }
 
     .video-card h3 {
       margin: 10px;
@@ -213,7 +224,7 @@ a:hover {
 
     .socials a {
       margin: 0 10px;
-      color: #00f0ff;
+      color: #0d0f1b;
       text-decoration: none;
     }
 
@@ -243,11 +254,6 @@ a:hover {
 
       .hero-image {
         display: none;
-      }
-
-      nav a {
-        display: block;
-        margin: 10px auto;
       }
 
       .buttons {
@@ -304,7 +310,6 @@ a:hover {
     }
     
     function abrirMapa() {
-      // Exemplo: localização da Av. Paulista, São Paulo
       const endereco = encodeURIComponent("6 R. Bolivar Carvalho, Jardim Metrópoles, São João de Meriti");
       const url = `https://www.google.com/maps?q=${endereco}`;
       window.open(url, '_blank');
@@ -340,7 +345,6 @@ a:hover {
       <textarea name="message" id="message" placeholder="Escreva aqui seu pedido" required></textarea>
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" id="nextPageRedirect">
-
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -399,10 +403,9 @@ a:hover {
   </div>
 
   <div class="footer">
-    &copy; 2025 Pregador Virtual. Todos os direitos reservados.
+    &copy; Assembleia de Deus Ministério O Mover do Espírito Santo. Todos os direitos reservados.
   </div>
   <script>
-    // Monta a URL base do site automaticamente
     document.getElementById("nextPageRedirect").value =
       window.location.origin + "/Obrigado/obrigado.html";
   </script>
