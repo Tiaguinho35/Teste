@@ -65,12 +65,13 @@
       background: rgba(0, 0, 0, 0.95);
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       touch-action: pan-y;
     }
 
     .modal-content {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 80%;
       border-radius: 10px;
       object-fit: contain;
     }
@@ -102,6 +103,27 @@
       user-select: none;
     }
 
+    /* Bolinhas */
+    .dots {
+      margin-top: 15px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #888;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #00f0ff;
+    }
+
     @media (max-width: 600px) {
       .controls { display: none; }
       .modal-content {
@@ -124,8 +146,12 @@
     <div class="album" data-slideshow='["Imagens/Carne_Espírito.jpg", "Imagens/Culto_Libertacao.jpg"]'>
       <img src="Imagens/Carne_Espírito.jpg" alt="Capa Álbum 2">
       <div class="album-title">Mensagens</div>
-  </div>
+    </div>
 
+    <div class="album" data-slideshow='["Imagens/Culto_Sexta1.jpg", "Imagens/Culto_Sexta2.jpg", "Imagens/Culto_Sexta3.jpg", "Imagens/Culto_Sexta4.jpg", "Imagens/Culto_Sexta5.jpg", "Imagens/Culto_Sexta6.jpg", "Imagens/Culto_Sexta7.jpg", "Imagens/Culto_Sexta8.jpg"]'>
+      <img src="Imagens/Culto_Sexta8.jpg" alt="Capa Álbum 3">
+      <div class="album-title">Culto de Sexta-Feira</div>
+    </div>
   </div>
 
   <!-- Modal -->
@@ -136,6 +162,7 @@
       <span class="control-btn" id="next">&#10095;</span>
     </div>
     <img class="modal-content" id="modalImg" />
+    <div class="dots" id="dots"></div>
   </div>
 
   <script>
@@ -145,6 +172,7 @@
     const closeBtn = document.getElementById("closeBtn");
     const nextBtn = document.getElementById("next");
     const prevBtn = document.getElementById("prev");
+    const dotsContainer = document.getElementById("dots");
 
     let currentSlides = [];
     let modalIndex = 0;
@@ -152,12 +180,29 @@
     function showSlide(index) {
       modalIndex = index;
       modalImg.src = currentSlides[modalIndex];
+
+      // Atualizar bolinhas
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === modalIndex);
+      });
+    }
+
+    function createDots(slideCount) {
+      dotsContainer.innerHTML = "";
+      for (let i = 0; i < slideCount; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      }
     }
 
     albums.forEach(album => {
       album.addEventListener('click', () => {
         currentSlides = JSON.parse(album.dataset.slideshow);
         modal.style.display = "flex";
+        createDots(currentSlides.length);
         showSlide(0);
       });
     });
